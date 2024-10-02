@@ -16,7 +16,12 @@ class UserProfile(AbstractUser):
                                                        MaxValueValidator(90)])
     date_registered = models.DateField(auto_now = True,null = True, blank=True)
     phone_number = PhoneNumberField(null = True, blank=True, region='KG')
-
+    STATUS_CHOICES = (
+        ('gold', 'Gold'),
+        ('silver', 'Silver'),
+        ('bronze', 'Bronze'),
+        ('simple', 'Simple')
+    )
     status = models.CharField(max_length=10, choices = STATUS_CHOICES, default='simple')
 
     def __str__(self):
